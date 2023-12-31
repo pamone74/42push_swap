@@ -29,10 +29,10 @@ int	main(int ac, char *argv[])
 		ft_parse(&stack_a, argv);
 		if (ft_is_sorted(stack_a) && !ft_duplicate(stack_a))
 			ft_sort_num(&stack_a, &stack_b);
+		else if (ft_duplicate(stack_a))
+			ft_error();
 		else if (ac == 2 || !ft_is_sorted(stack_a))
 			return (0);
-		else
-			ft_error();
 		ft_free_stack(stack_a);
 		return (1);
 	}

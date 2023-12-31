@@ -90,4 +90,6 @@ int			ft_check_overflow(int n);
 int			ft_atoi(const char *str);
 int			ft_std_out(const char *s1, const char *s2);
 int			ft_stack_a_min(t_stack *stack_a);
+int			ft_valid_stdin(char *str);
+int			ft_strcmp(const char *s1, const char *s2);
 #endif

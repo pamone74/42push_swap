@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pamone <pamone@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pamone <pamone@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:15:36 by pamone            #+#    #+#             */
-/*   Updated: 2023/12/23 13:51:34 by pamone           ###   ########.fr       */
+/*   Updated: 2023/12/31 01:06:44 by pamone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (((*s1 != '\n') || *s2 != '\0'))
-	{
-		if (*s1 != *s2)
-			return ((unsigned char) *s1 - (unsigned char)*s2);
-		s1 ++;
-		s2 ++;
-	}
-	return (0);
-}
 
 int	ft_comapare_command(char *cml, t_stack **stack_a, t_stack_b **stack_b)
 {
@@ -68,9 +56,17 @@ void	ft_checker_helper(t_stack **stack_a, t_stack_b **stack_b)
 	{
 		while (cml && cml[0] != '\0')
 		{
-			ft_comapare_command(cml, stack_a, stack_b);
-			free(cml);
-			cml = get_next_line(0);
+			if (ft_valid_stdin(cml) == 1)
+			{
+				ft_comapare_command(cml, stack_a, stack_b);
+				free(cml);
+				cml = get_next_line(0);
+			}
+			else
+			{
+				ft_error();
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 }
@@ -84,6 +80,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argv[1] == NULL)
+		return (0);
 	if (ft_std_out(argv[1], "") == 0)
 	{
 		ft_error();

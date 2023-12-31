@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pamone <pamone@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pamone <pamone@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 02:29:24 by pamone            #+#    #+#             */
-/*   Updated: 2023/12/23 13:37:04 by pamone           ###   ########.fr       */
+/*   Updated: 2023/12/31 00:28:08 by pamone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	ft_std_out(const char *s1, const char *s2)
 {
-	while (((*s1) || *s2))
+	if (s1)
 	{
-		if (*s1 != *s2)
-			return ((unsigned char) *s1 - (unsigned char)*s2);
-		s1 ++;
-		s2 ++;
+		while (((*s1) || *s2))
+		{
+			if (*s1 != *s2)
+				return ((unsigned char) *s1 - (unsigned char)*s2);
+			s1 ++;
+			s2 ++;
+		}
 	}
 	return (0);
 }

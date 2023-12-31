@@ -17,7 +17,7 @@ CC = cc
 SRC = operation_a.c operations_helper.c push_swap.c push_swap_utils.c \
       b_operation.c operations_helper_one.c parse_args.c split_operation.c \
       sorting_algorithms.c list_operation.c sort.c ft_str_join.c \
-      ft_radix.c instructions_radix.c ft_helper_functions.c
+      ft_radix.c instructions_radix.c ft_helper_functions.c ft_valid.c
 OBJ = $(SRC:.c=.o)
 MAIN_SORT_SRC = main.c
 MAIN_CHECKER_SRC = checker.c

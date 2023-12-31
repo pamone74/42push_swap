@@ -67,18 +67,18 @@ void	free_str_array(char **str)
 void	ft_parse(t_stack **stack_a, char *args[])
 {
 	int		i;
-	char	*nor;
+	char	*join_args;
 	char	**str;
 
 	i = -1;
-	nor = ft_strjoin(args);
-	str = ft_split(nor, ' ');
+	join_args = ft_strjoin(args);
+	str = ft_split(join_args, ' ');
 	while (str[++i] != NULL )
 	{
 		if (ft_check_ascii(str[i]) || ft_check_overflow(ft_atoi(str[i])))
 		{
 			ft_error();
-			free(nor);
+			free(join_args);
 			free_str_array(str);
 			ft_free_stack(*stack_a);
 			exit(EXIT_FAILURE);
@@ -86,7 +86,7 @@ void	ft_parse(t_stack **stack_a, char *args[])
 		else
 			ft_stack_append(stack_a, ft_atoi(str[i]));
 	}
-	free(nor);
+	free(join_args);
 	free_str_array(str);
 	ft_assign_index(stack_a);
 }
