@@ -32,7 +32,7 @@ int	main(int ac, char *argv[])
 		else if (ft_duplicate(stack_a))
 			ft_error();
 		else if (ac == 2 || !ft_is_sorted(stack_a))
-			return (0);
+			return (free(stack_a),0);
 		ft_free_stack(stack_a);
 		return (1);
 	}
